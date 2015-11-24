@@ -1,4 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//apply plugin: "genymotion"
 
 buildscript {
     repositories {
@@ -6,6 +7,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.3.0'
+       // classpath 'com.genymotion:plugin:1.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,3 +19,15 @@ allprojects {
         jcenter()
     }
 }
+
+/*genymotion {
+    devices {
+        nexus5 {
+            template "Google Nexus 5 - 4.4.4 - API 19 - 1080x1920"
+        }
+    }
+    config {
+        genymotionPath = "/home/user/app/genymotion/"
+        taskLaunch = "runTest"
+    }
+}*/

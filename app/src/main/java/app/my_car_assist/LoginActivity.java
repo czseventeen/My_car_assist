@@ -79,6 +79,23 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }
         });
 
+        // Get to Home Screen on Guest Login
+        Button GuestLoginButton = (Button) findViewById(R.id.button);
+        GuestLoginButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.startup_screen);
+                //Simulate login screen
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                setContentView(R.layout.home_layout);
+            }
+        });
+
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
         System.out.println("Hello");
