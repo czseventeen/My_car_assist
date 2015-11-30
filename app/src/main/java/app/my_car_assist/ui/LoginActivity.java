@@ -1,4 +1,4 @@
-package app.my_car_assist;
+package app.my_car_assist.ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -26,6 +27,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import app.my_car_assist.R;
 
 /**
  * A login screen that offers login via email/password.
@@ -84,14 +87,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         GuestLoginButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.startup_screen);
+
                 //Simulate login screen
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                setContentView(R.layout.home_layout);
+                startApp();
             }
         });
 
@@ -99,6 +97,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
         System.out.println("Hello");
+    }
+
+    public void startApp(){
+        Intent intent = new Intent (this, HomeActivity.class);
+        startActivity(intent);
     }
 
     private void populateAutoComplete() {
